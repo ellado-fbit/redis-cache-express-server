@@ -31,7 +31,7 @@ const createApp = (collection) => {
 
         // Set user data to Redis
         console.log(`Setting '${username}' data to Redis cache...`)
-        client.setex(username, 20, JSON.stringify(user))
+        client.setex(username, 20, JSON.stringify(user))  // data expires from Redis in 20 seconds!
 
         res.status(200).json({ extratedFrom: 'MongoDB', user: user })
       })
