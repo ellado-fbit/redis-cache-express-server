@@ -1,0 +1,16 @@
+{
+  "name": "redis-cache-express-server",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "start": "nodemon server.js"
+  },
+  "keywords": [],
+  "author": "Esteve Lladó",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1",
+    "mongodb": "^3.5.5",
+    "redis": "^3.0.2"
+  }
+}
