@@ -36,7 +36,7 @@ const createApp = (collection) => {
         res.status(200).json({ extratedFrom: 'MongoDB', user: user })
       })
       .catch(error => {
-        res.status(500).json({ error: error.emssage })
+        res.status(500).json({ error: error.message })
       })
   }
 
@@ -46,7 +46,7 @@ const createApp = (collection) => {
     client.get(username, (err, user) => {
       if (user) {
         console.log(`Extracted user '${username}' from Redis cache.`)
-        res.status(200).json( { extractedFrom: 'Redis cache', user: JSON.parse(user)})
+        res.status(200).json({ extractedFrom: 'Redis cache', user: JSON.parse(user) })
       } else {
         next()  // user not found in chache, then it moves on to the next middleware getUserFromMongo
       }
