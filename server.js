@@ -5,7 +5,9 @@ const config = require('./config.js')
 
 const client = redis.createClient()
 
-mongoUtils.openMongoCollection(config.mongodb_uri, config.db_name, config.col_name, config.poolSize)
+const { mongodb_uri, db_name, col_name, poolSize} = config
+
+mongoUtils.openMongoCollection(mongodb_uri, db_name, col_name, poolSize)
   .then(col => {
     console.log('Connected to MongoDB!')
     createApp(col.collection)
