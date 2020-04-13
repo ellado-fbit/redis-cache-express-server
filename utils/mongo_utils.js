@@ -2,19 +2,18 @@ const MongoClient = require('mongodb').MongoClient
 
 const openMongoCollection = (mongodb_uri, db_name, col_name, poolSize) => {
   return new Promise((resolve, reject) => {
-    MongoClient.connect(mongodb_uri, { useNewUrlParser: true, useUnifiedTopology: true, poolSize: poolSize }, (err, client) => {
+    MongoClient.connect(mongodb_uri, { useNewUrlParser: true, useUnifiedTopology: true, poolSize }, (err, client) => {
       if (!err) {
         const db = client.db(db_name)
         db.collection(col_name, (err, collection) => {
           if (!err) {
             resolve({
-              mongodb_uri: mongodb_uri,
-              db_name: db_name,
-              col_name: col_name,
-              collection: collection
+              mongodb_uri,
+              db_name,
+              col_name,
+              collection
             })
-          }
-          else {
+          } else {
             reject(err)
           }
         })
@@ -38,6 +37,6 @@ const queryMongoCollection = (query, mongo_col) => {
 }
 
 module.exports = {
-  openMongoCollection: openMongoCollection,
-  queryMongoCollection: queryMongoCollection
+  openMongoCollection,
+  queryMongoCollection
 }

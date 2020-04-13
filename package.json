@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "scripts": {
-    "start": "node server.js"
+    "start": "nodemon server.js"
   },
   "keywords": [],
   "author": "Esteve Lladó",
@@ -12,5 +12,8 @@
     "express": "^4.17.1",
     "mongodb": "^3.5.5",
     "redis": "^3.0.2"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.3"
   }
 }
